@@ -1,0 +1,42 @@
+<div class="context-wrapper">
+    <div class="geo">
+        <h5 class="d-inline my-3 mr-2"> Geographical </h5>
+        <app-searchbox></app-searchbox>
+        <div class="questions">
+            <table class="table  table-hover">
+                <tbody>
+                    <tr *ngFor="let question of geoQuestionsArray">
+                        <td> {{question.label}}</td>
+                        <td><select class="form-control">
+                     <option>
+                         abab
+                       </option>
+                   </select></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div class="fun">
+        <h5 class="d-inline mr-2"> Functional</h5>
+        <app-searchbox></app-searchbox>
+
+        <div class="questions">
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor="let question of funQuestionsArray">
+                        <td> {{question.label}}</td>
+                        <td><select class="form-control">
+                     <option>
+                         abab
+                       </option>
+                   </select></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

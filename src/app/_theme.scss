@@ -1,0 +1,64 @@
+$primary-color: #008080;
+// light to dark https://maketintsandshades.com
+$primary-color-03: #cce6e6;
+$primary-color-05: #99cccc;
+$primary-color-07: #66b3b3;
+$primary-color-09: #339999;
+$primary-color-14: #006666;
+$primary-color-16: #004d4d;
+$primary-color-18: #003333;
+$primary-color-20: #001a1a;
+$primary-font: 'Nunito',
+sans-serif;
+$secondary-color: #800000;
+$primary-gray: slategrey;
+$border-gray: 1px solid #ddd;
+
+.editable-input {
+    background: none;
+    border: none;
+    background: #eee;
+    border-radius: 8px;
+    padding: 5px 20px;
+    color: #222;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.check-box {
+    width: 100%;
+}
+
+.card-header {
+    background: white;
+    border: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+@mixin icon-alignment {
+    position: relative;
+
+    i {
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+        @content;
+    }
+}
+
+.post-icon {
+    @include icon-alignment {
+        right: 25px;
+    }
+}
+
+.pre-icon {
+    @include icon-alignment {
+        left: 25px;
+    }
+}

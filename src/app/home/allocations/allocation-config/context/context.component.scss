@@ -1,0 +1,42 @@
+.context-wrapper {
+    .geo {
+        .questions {
+            height: 28vh;
+            overflow: auto;
+            table {
+                td {
+                    border: none;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .fun {
+        .questions {
+            height: 32vh;
+            overflow: auto;
+            table {
+                td {
+                    border: none;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+// .context-wrapper {
+//     .geo-wrap {
+//         height: 60vh;
+//         overflow: auto;
+//     }
+//     .functional-wrap {
+//         height: 60vh;
+//         overflow: auto;
+//         table {
+//             td {
+//                 border: none;
+//             }
+//         }
+//     }
+// }

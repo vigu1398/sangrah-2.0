@@ -1,0 +1,66 @@
+<!-- <div class="card-body"> -->
+    <div class="card-body">
+        <div style="display: flex; flex-direction: row;">
+        <i class="fa fa-arrow-left cursor-pointer" style="width: fit-content; font-size: larger;" (click)="goBack()"></i>
+        <div class="head">
+            <span class="input">
+                Name :
+                <mat-card-content style="padding-left: 1em;">
+                    <mat-form-field style="width: 25%; font-size: initial; font-family: inherit; text-align: center;">
+                        <input matInput type="text" [(ngModel)]="name" (keydown)="key($event)" required />
+                    </mat-form-field>
+                </mat-card-content>
+            </span>
+            <span class="input">
+                Description :
+                <mat-card-content style="padding-left: 1em;">
+                    <mat-form-field style="width: 40%; font-size: initial; font-family: inherit; text-align: center;">
+                        <input matInput type="text" [(ngModel)]="description" (keydown)="key($event)" required />
+                    </mat-form-field>
+                </mat-card-content>
+            </span>
+        </div>
+    </div>
+        <div class="body">
+            <div class="parent">
+                Parent :
+                <mat-select class="select-project" [(ngModel)]="binding1" (selectionChange)="getId(binding1)"
+                    placeholder="select">
+                    <mat-option *ngFor="let item of data; index as i" [value]="item"
+                        [disabled]="data[i].isDisabled == true">
+                        {{ item.ref_value }}
+                    </mat-option>
+                </mat-select>
+
+                <div class="parent-content">
+                    <div class="items-list" *ngFor="let user of record;index as i" [class.active]="i==activeIndex" (click)="getData(i, user)">
+                        <span class="user-name">{{user.ref_value.default || user.ref_value}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="middle"></div>
+            <div class="child">
+                Child :
+                <mat-select class="select-project" [(ngModel)]="binding2" (selectionChange)="getChildId(binding2)"
+                    placeholder="select">
+                    <mat-option *ngFor="let item of refData; index as i" [value]="item"
+                        [disabled]="refData[i].isDisabled == true">
+                        {{ item.ref_value }}
+                    </mat-option>
+                </mat-select>
+
+                <div class="parent-content">
+                    <div class="content">
+                        <div class="items-list" *ngFor="let user of childList">
+                            <span class="user-name">{{user.ref_value.default || user.ref_value}}</span>
+                        </div>
+                    </div>
+                    <span class="value">
+                        <button (click)="chooseValue()">Choose value</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <button (click)="done()">Done</button>
+    <!-- </div> -->
+</div>

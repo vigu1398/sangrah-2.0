@@ -1,0 +1,27 @@
+@import '~src/app/_theme';
+.item {
+    padding: 5px 10px;
+    background: $primary-color;
+    border-radius: 40px;
+    color: white;
+    white-space: nowrap;
+    i {
+        padding-left: 10px;
+        display: none;
+        cursor: pointer;
+    }
+    &:hover {
+        i {
+            display: inline;
+        }
+    }
+    input {
+        background: none;
+        border: none;
+        width: 50px;
+        color: white;
+        &:focus {
+            outline: none;
+        }
+    }
+}

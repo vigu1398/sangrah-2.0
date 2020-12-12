@@ -1,0 +1,76 @@
+@import '~src/app/_theme';
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    
+        .head{
+            width: 100%;
+            height: 10%;
+            // overflow: auto;
+            .searchbox {
+                display: inline-block;
+                position: relative;
+                input {
+                    border: none;
+                    background: white;
+                    border-radius: 20px;
+                    padding: 7px 20px;
+                    box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.07);
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    .fa-search {
+                        position: absolute;
+                        top: 50%;
+                        right: 15px;
+                        transform: translate(0%, -50%);
+                        color: #aaa;
+                    }
+                }                
+            }
+            .table-body{
+                tr{
+                    cursor: pointer;
+                    td{
+                        white-space: pre-line;
+                    }
+                }
+                height: 80%;
+                overflow: auto;
+            }
+            
+        .btn{
+            float: right;
+            .add-field-btn {
+                display: flex;
+                padding: 0;
+                border: none;
+                border-radius: 50px;
+                background: white;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+                cursor: pointer;
+                .add-icon {
+                    display: flex;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 100%;
+                    background: $primary-color;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    margin-right: 5px;                            
+                        }
+                    &:focus {
+                        outline: none;
+                        }
+                    }
+                }
+        }
+                        

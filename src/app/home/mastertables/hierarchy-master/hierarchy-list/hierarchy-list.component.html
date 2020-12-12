@@ -1,0 +1,39 @@
+<div class="card-body">
+    <div class="mb-3 head">
+        <div class="searchbox">
+            <input type="search" placeholder="Search" [(ngModel)]="projectSearch">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="btn">
+            <button class="float-right add-field-btn" (click)="assignParent(1)">
+                <i class="fa fa-plus add-icon"></i> Add New
+            </button>
+        </div>
+    </div>
+    <div class="table-body">
+        <table class="table table-hover" data-toggle="table" data-search="true" data-filter-control="true"
+            data-show-export="true" data-click-to-select="true">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Created By</th>
+                    <th>Modified By</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of data" (click)="assignParent(project._id)">
+                    <td>{{project.name}}</td>
+                    <td>{{project.description}}</td>
+                    <td>{{(project?.createdBy?.username) + '\n' +(project?.createdAt | date:'short')}}</td>
+                    <td>{{(project?.modifiedBy?.username) + '\n' +(project?.modifiedAt | date:'short')}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="btn">
+        <button class="float-right add-field-btn" (click)="assignParent(1)">
+            <i class="fa fa-plus add-icon"></i> Add New
+        </button>
+    </div> -->
+</div>

@@ -1,0 +1,36 @@
+<div class="modal-wrap">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="d-inline">Select Users</h3>
+            <i class="fa fa-close float-right cursor-pointer" (click)="onCloseModal()"></i>
+        </div>
+        <div class="card-body">
+            <app-searchbox></app-searchbox>
+
+            <div class="users-list mt-2">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Name</th>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of UserDetails">
+                            <td> <input type="checkbox"></td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.mobile}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-success float-right mt-2" (click)="onAdd()">Add</button>
+        </div>
+    </div>

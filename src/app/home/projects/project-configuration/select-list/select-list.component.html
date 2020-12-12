@@ -1,0 +1,31 @@
+<div class="list-container">
+
+    <div class="col-lg-4 p-0 list">
+        <h5 class="mb-2 pl-3">List Names</h5>
+        <div class="list-items" *ngFor="let item of list; index as i" (click)="assign(item, i)">
+            <div class="item" [class.active]="i==activeIndex">
+                {{item.ref_value}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8" style="height: 100%; padding-right: 0px;">
+        <div class="list-details">
+            <div class="pb-3 border-bottom">
+                <label class="font-weight-bold">Name: </label>
+                <input disabled type="text" [(ngModel)]="fieldName" class="ml-3 editable-input">
+                <span class="close">
+                    <i class="fa fa-close close" (click)="close()"></i>
+                </span>
+            </div>
+            <label class="font-weight-bold mt-3">Values</label>
+            <div class="pt-1">
+                <div class="items-list" *ngFor="let user of child;index as i">
+                    <span class="user-name">{{user.ref_value.default || user.ref_value}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <span class="btn">
+            <button [mat-dialog-close]="data" (click)="done()">Done</button>
+        </span>

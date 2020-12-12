@@ -1,0 +1,87 @@
+@import '~src/app/_theme';
+.navbar {
+    width: 70px;
+    height: 100vh;
+    background: rgb(255, 251, 251);
+    transition: 200ms;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+    align-items: flex-start;
+    .logo {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 30px;
+        .logo-large {
+            display: none;
+        }
+    }
+    ul {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        li {
+            text-align: center;
+            &.menu-items {
+                cursor: pointer;
+                // padding-top: 30px;
+                .menu-item {
+                    padding: 15px 0px;
+                    font-size: 25px;
+                    color: $primary-color-16;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    &.active {
+                        background: #eee;
+                        border-left: 3px solid $primary-color;
+                    }
+                    p {
+                        margin: 0;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+    .menu-name {
+        display: none;
+        transition: 1s;
+        font-size: 14px;
+    }
+    .version {
+        display: none;
+        transition: 1s;
+        font-size: 12px;
+        color: $primary-gray;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &:hover {
+        width: 200px;
+        ul .menu-items>.menu-item {
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+        .menu-name {
+            display: inline;
+            padding-left: 10px;
+        }
+        .version {
+            display: inline;
+        }
+        ul li {
+            text-align: start;
+        }
+        .logo {
+            padding-left: 20px;
+            .logo-large {
+                display: block;
+            }
+            .logo-small {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-header">
+        <h3> User Profile </h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-pic">
+                    <i class="fa fa-user-circle profile"></i>
+                    <h3>{{user?.username | titlecase}}</h3>
+                    <button class="pic-btn"> Change Picture </button> <button class="pic-btn">Remove </button>
+                </div>
+                <!-- <button class="btn btn-success m-2" (click)="changePassword()">Change Password <i class="fa fa-key"
+                        aria-hidden="true "></i></button> -->
+            </div>
+            <div class="col-md-8">
+                <div class="details">
+                    <h5>Basic Profile</h5>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td class="labels"> Name</td>
+                                <td>
+                                    <div class="post-icon">
+                                        <input class="form-control " type="text "
+                                            value="{{user.username | titlecase}} ">
+                                        <i class="fa fa-user" aria-hidden="true "></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Email</td>
+                                <td>
+                                    <div class="post-icon">
+                                        <input class="form-control" type="text " value="{{user.email}} ">
+                                        <i class="fa fa-envelope-o " aria-hidden="true "></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Permissions</td>
+                                <td>
+                                    <div class="post-icon">
+                                        <input class="form-control" type="text " value="{{user.role | titlecase}} "
+                                            disabled>
+                                        <i class="fas fa-user-tag" aria-hidden="true "></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Creation Date</td>
+                                <td>
+                                    <div class="post-icon">
+                                        <input class="form-control " type="text "
+                                            value="{{user.createdAt | date: 'medium'}} " disabled>
+                                        <i class="fa fa-calendar-o" aria-hidden="true "></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Status</td>
+                                <td>
+                                    <div class="post-icon">
+                                        <input class="form-control " type="text " value="{{user.status | titlecase}} "
+                                            disabled>
+                                        <i class="fa fa-check" aria-hidden="true "></i>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- <button class="btn btn-success float-right mt-1 " (click)="onUpdate() ">Update</button> -->
+    </div>
+</div>
+<app-change-password *ngIf="showChangePassword " (closeModal)="changePassword() "></app-change-password>

@@ -1,0 +1,9 @@
+node_modules
+dist
+e2e
+.vscode
+logs
+src/app/url.config.ts
+src/app/url.config.js
+src/environments
+package-lock.json

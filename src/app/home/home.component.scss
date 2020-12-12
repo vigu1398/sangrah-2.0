@@ -1,0 +1,21 @@
+@import '~src/app/_theme';
+
+.main-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    .navbar-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .router-wrap {
+        background: #e0e0e0;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+        padding-left: 90px;
+    }
+}

@@ -1,0 +1,18 @@
+<div class="dialog-box-custom-css">
+    <div class="dialogBox-css">
+        <div class="inner">
+            <p>{{ data.message }}</p>
+            <span *ngIf="data.note"> {{ data.note }} </span>
+        </div>
+    </div>
+
+    <div class="button-div-css">
+        <button [mat-dialog-close]="cancel" style="cursor: pointer">
+            {{ data.cancelMsg }}
+        </button>
+        <div class="vl"></div>
+        <button [mat-dialog-close]="save" style="cursor:pointer">
+            {{ data.btnMsg }}
+        </button>
+    </div>
+</div>

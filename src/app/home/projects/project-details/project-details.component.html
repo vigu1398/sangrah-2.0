@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-header">
+        <div class="p-0 pt-1">
+
+            <h2> Projects</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="head">
+            <div class="searchbox">
+                <input type="search" placeholder="Search" [(ngModel)]="projectSearch">
+                <i class="fa fa-search"></i>
+            </div>
+            <div class="float-right" style="margin-right: 1rem;">
+                <ul class="status-list">
+                    <li>
+                        <span class="labels">Active: </span>
+                        <span class="count">{{activeCount || 0}}</span>
+                    </li>
+                    <li>
+                        <span class="labels">Total: </span>
+                        <span class="count">{{projectDetails?.length || 0}}</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- <button class="float-right import-btn" (click)="importProject()">
+                <div class="add-icon">
+                    <i class="fa fa-plus"></i>
+                </div>
+                Import
+            </button> -->
+
+        </div>
+        <div class="table-body">
+            <table class="table table-hover" data-toggle="table" data-search="true" data-filter-control="true"
+                data-show-export="true" data-click-to-select="true">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <!-- <th>Delete After Send</th> -->
+                        <th>Created By  </th>
+                        <th>Created On</th>
+                        <th>Modified On</th>
+                        <th>Status     </th>
+                        <!-- <th data-field="status" data-filter-control="select" data-sortable="true">Status</!-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let project of filter; index as i;" (click)="selectProject(project._id, i)" [class.highlighted]="project._id == selectedId" [id]="'item-'+i"> 
+                        <td (click)="showProjectConfiguration(project._id, i)">
+                            {{project.title}}
+                        </td>
+                        <!-- <td><input class="check-box" type="checkbox"></td> -->
+                        <td>{{project.createdBy?.username}}</td>
+                        <td>{{project.createdAt | date: 'dd/MM/yyyy, hh:mm:ss a'}}</td>
+                        <td>{{project.modifiedAt | date: 'dd/MM/yyyy, hh:mm:ss a'}}</td>
+                        <td>{{project.status}}</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- <app-import-project *ngIf="showImportProject" (closeModal)="importProject()"></app-import-project> -->

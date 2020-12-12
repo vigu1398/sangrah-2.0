@@ -1,0 +1,23 @@
+<div class="allocated-users-wrap">
+    <div class="heading mt-2">
+        <div class="searchbox m-2 d-inline">
+
+            <app-searchbox></app-searchbox>
+        </div>
+        <button class="float-right add-btn" (click)="addUsers()">
+      <div class="add-icon">
+        <i class="fa fa-plus"></i>
+      </div>
+       Add User</button>
+    </div>
+    <div class="allocated-users mt-3">
+        <div class="chip" *ngFor="let user of users;index as i">
+            <span class="user-name"> {{user.name}}</span>
+            <i class="fa fa-times" (click)="onDelete(user)"></i>
+
+        </div>
+
+    </div>
+</div>
+
+<app-add-users *ngIf="showAddUsers " (closeModal)="addUsers() "></app-add-users>

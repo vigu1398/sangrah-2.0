@@ -1,0 +1,80 @@
+<div class="project-config-wrap">
+    <div class="card-header">
+        <div class="project-heading">
+            <i class="fa fa-arrow-left cursor-pointer" (click)="goBack()"></i>
+            <div class="title"><h6>Project Configuration</h6>
+            <h4>{{title}}</h4></div>
+        </div>
+        <button class="allocation-icon" (click)="goTo()">
+            <div class="add-icon">
+                <i class="fa fa-group"></i>
+            </div>
+            Go to Allocations
+        </button>
+    </div>
+    <div class="card-body">
+        <div class="px-3 py-1 body-wrapper-heading">
+            <!-- <div class="heading1">
+                <label class="pr-2"> Projects:</label>
+                <div class="searchbox">
+                    <mat-select class="select-project" (selectionChange)="getId($event)" placeholder="select">
+                        <mat-option value="" default>select</mat-option>
+                        <mat-option *ngFor="let item of projectList" [value]="item._id">
+                            {{ item.title }}
+                        </mat-option>
+                    </mat-select>data
+                </div>
+            </div> -->
+            <div class="heading2">
+                <label class="m-0"> Delete After Send</label> <input type="checkbox" class="ml-2 delete-check">
+            </div>
+            <div class="heading3">
+                <label class="m-1">Status: </label>
+                <label class="label m-1">  {{status}} </label>
+                <!-- <button class="btn btn-primary  m-1">SHARE</button> -->
+                <button class="btn btn-primary m-1" (click)="save()">SAVE</button>
+                <button class="btn btn-primary m-1" (click)="deploy()">{{btnDeploy}}</button>
+            </div>
+        </div>
+        <div class="body-wrapper">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Questions</th>
+                        <th>Data Type</th>
+                        <th>List Name</th>
+                        <th>Cascading</th>
+                        <th>Searchable</th>
+                        <th>Non-Editable</th>
+                    </tr>
+                </thead>
+                <tbody class="t-body">
+                    <tr *ngFor="let question of data; index as i">
+                        <td style="text-align: inherit">{{question.label?.default || question.label}}</td>
+                        <td style="text-align: inherit">{{question.type}}</td>
+                        <td><button class="select"
+                                [hidden]="question?.type != 'select one' && question?.type != 'select all that apply'"
+                                (click)="selectList(i)">
+                                <span>
+                                    {{question.isSelect}}
+                                </span>
+                            </button>
+                        </td>
+                        <td><button class="select"
+                            [hidden]="!question.hasOwnProperty('cascade')"
+                            (click)="selectQuestion(i)">
+                            <span>
+                                {{question.cascade}}
+                            </span>
+                        </button>
+                        </td>
+                        <td><input class="check" type="checkbox" *ngIf="question.hasOwnProperty('searchable')" [(ngModel)]="question.searchable"
+                                (change)="searchItem($event, i)"></td>
+                        <td><input class="check" type="checkbox" *ngIf="question.hasOwnProperty('editable')" [(ngModel)]="!question.editable"
+                                (change)="editItem($event, i)"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

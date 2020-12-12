@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header">
+        <div class="p-0 pt-1">
+            <i class="fa fa-arrow-left cursor-pointer" (click)="goBack()"></i>
+            <h2 class="d-inline pl-2">Allocations</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="pb-2 ">
+            <app-searchbox></app-searchbox>
+            <button class="float-right add-btn" (click)="addAllocation()">
+      <div class="add-icon">
+        <i class="fa fa-plus"></i>
+      </div>
+       Add Allocation</button>
+
+        </div>
+        <div class="allocation-container row">
+            <div class="col-lg-2 p-0 list">
+                <h5 class="mb-2 py-3 pl-3">Allocations</h5>
+                <app-listbox [activeIndex]="activeIndex" [items]="fieldNames" displayKey="label" (selectItem)="onListItemSelected($event)"></app-listbox>
+            </div>
+            <div class="col-lg-10">
+                <tabset>
+                    <tab customClass="customClass" heading="Context" id="tab1">
+                        <app-context></app-context>
+                    </tab>
+                    <tab heading="Allocated Users">
+                        <app-allocated-users></app-allocated-users>
+                    </tab>
+                </tabset>
+
+                <div class="allocation-details">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-add-allocation *ngIf="showAddModal " (closeModal)="addAllocation() "></app-add-allocation>

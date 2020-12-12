@@ -1,0 +1,28 @@
+<div class="container">
+    <p>
+        Name : Child
+        <span class="close" (click)="close()">
+            <i class="fa fa-close"></i>
+        </span>
+    </p>
+    <div class="body mb-3">
+        <div class="searchbox">
+            <input type="search" placeholder="Search" [(ngModel)]="searchItem">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="list">
+            <ul>
+                <li *ngFor="let list of filter">
+                    <span><input class="check" type="checkbox" [(ngModel)]="list.isChecked"
+                            (change)="selectItem(list, $event)"></span>
+                    <span class="labels">{{list.ref_value}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="btn">
+            <button class="btn btn-success" [mat-dialog-close]="data" (click)="done()">
+                DONE
+            </button>
+        </div>
+    </div>
+</div>

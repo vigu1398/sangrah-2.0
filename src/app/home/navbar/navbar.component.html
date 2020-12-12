@@ -1,0 +1,60 @@
+<div class="navbar">
+    <ul>
+        <li>
+            <div class="logo">
+                <img class="logo-small" src="assets/login/sangrah.png" height="40px">
+                <img class="logo-large" src="assets/login/sangrah-logo-text.png" height="40px">
+                <!-- <h3 class="menu-name">Sangrah</h3> -->
+            </div>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item">
+                <i class="fa fa-home"></i>
+                <p class="menu-name m-0">Home</p>
+            </a>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item" routerLinkActive="active" [routerLink]="['/home/profile']">
+                <i class="fa fa-user-circle"></i>
+                <p class="menu-name m-0">Profile</p>
+            </a>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item" routerLinkActive="active" [routerLink]="['/home/projects']">
+                <i class="fa fa-list-alt"></i>
+                <p class="menu-name m-0">Projects</p>
+            </a>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item" routerLinkActive="active" [routerLink]="['/home/mastertables']">
+                <i class="fa fa-database"></i>
+                <p class="menu-name">Master Tables</p>
+            </a>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item" routerLinkActive="active" [routerLink]="['/home/allocations']">
+                <i class="fab fa-autoprefixer"></i>
+                <p class="menu-name">Allocation</p>
+            </a>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item" routerLinkActive="active" [routerLink]="['/home/user-management']">
+                <i class="fa fa-users"></i>
+                <p class="menu-name">User Management</p>
+            </a>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item" routerLinkActive="active" [routerLink]="['/home/data-management']">
+                <i class="fa fa-server"></i>
+                <p class="menu-name">Data Management</p>
+            </a>
+        </li>
+        <li class="menu-items">
+            <a class="menu-item" (click)="logout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <p class="menu-name">Logout</p>
+            </a>
+        </li>
+    </ul>
+    <span class="version">v{{version}}</span>
+</div>

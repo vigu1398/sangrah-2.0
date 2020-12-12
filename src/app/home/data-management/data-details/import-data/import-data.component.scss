@@ -1,0 +1,85 @@
+@import '~src/app/_theme';
+.modal-wrap {
+    // height: 100vh;
+    // width: 100vw;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // background: rgba(0, 0, 0, 0.5);
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    display: flex;
+    flex-direction: column;
+    .card {
+        width: 100%;
+        .username-input {
+            float: left;
+            width: 80%;
+            padding-left: 30px;
+        }
+        .search-btn {
+            float: left;
+            width: 20%;
+            padding: 9px;
+            background: $primary-color-09;
+            color: white;
+            font-size: 12px;
+            border: 1px solid $primary-color-05;
+            border-left: none;
+            cursor: pointer;
+        }
+        .form-names {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            li {
+                margin-bottom: 5px;
+                width: 100%;
+                border: 1px solid #eee;
+                cursor: pointer;
+                p {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    margin: 0;
+                }
+                .import,
+                .imported {
+                    display: none;
+                    border: 1px dotted #eee;
+                    background: none;
+                    float: right;
+                    padding: 10px 20px;
+                    height: 100%;
+                    &.import {
+                        border-radius: 10px;
+                        border: 1px solid $primary-color;
+                        color: $primary-color;
+                    }
+                    &.imported {
+                        color: $primary-color;
+                    }
+                }
+                &:hover {
+                    .import {
+                        display: block;
+                    }
+                }
+                &.active {
+                    .imported {
+                        display: block;
+                    }
+                    .import {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .done{
+            float: right;
+            background-color: $primary-color;
+            border: none;
+            outline: none;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+<div class="modal-wrap">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="d-inline">Import project</h3>
+            <i class="fa fa-close float-right cursor-pointer" (click)="onCloseModal()"></i>
+        </div>
+        <div class="card-body">
+            <div class="row m-0 border-top py-3">
+                <div class="col-xl-6 row m-0 pl-0">
+                    <div class="col-xl-5 pl-0">
+                        <label> Sangrah Instance</label>
+                    </div>
+                    <div class="col-xl-7">
+                        <select class="form-control">
+                            <option>
+                                ans
+                            </option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-xl-6 row pr-0">
+                    <div class="col-xl-4">
+                        <label> Username</label>
+                    </div>
+                    <div class="col-xl-6 pr-0">
+                        <input type="text" class="form-control username-input">
+                        <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+            <ul class="form-names">
+                <li class="active">
+                    <p>Form 1</p>
+                    <div class="import">import</div>
+                    <div class="imported">
+                        <i class="fa fa-check"></i> imported
+                    </div>
+                </li>
+                <li>
+                    <p>Form 1</p>
+                    <div class="import">import</div>
+                    <div class="imported">
+                        <i class="fa fa-check"></i> imported
+                    </div>
+                </li>
+                <li>
+                    <p>Form 1</p>
+                    <div class="btn btn-primary import">import</div>
+                    <div class="imported">
+                        <i class="fa fa-check"></i> imported
+                    </div>
+                </li>
+            </ul>
+
+            <button class="btn btn-success done" [mat-dialog-close]="data" (click)="onDone()">Done</button>
+        </div>
+    </div>
+</div>

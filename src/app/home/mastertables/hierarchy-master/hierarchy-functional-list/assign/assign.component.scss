@@ -1,0 +1,168 @@
+@import '~src/app/_theme';
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    
+    .container-body{
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        height: 95%;
+        @media only screen and(max-width: 900px){
+            width: 110%;
+            height: 100%;
+        }
+        .head{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            @media only screen and(max-width: 550px){
+                height: 15%;
+                overflow: auto;
+                margin-top: -10px;
+            }
+        }
+        .body{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 70%;
+            @media only screen and(max-width: 550px){
+                    display: flex;
+                    flex-direction: column;
+                }
+            .parent{
+                width: 30%;
+                height: 80%;
+                text-align: center;
+                padding-right: 10px;
+                @media only screen and(max-width: 900px){
+                    width: 40%;
+                }
+                @media only screen and(max-width: 600px){
+                    width: 45%;
+                }
+                @media only screen and(max-width: 550px){
+                    width: 85%;
+                }
+                .select-project{
+                    display: inline-block;
+                    position: relative;
+                    width: 50%;
+                }
+                .parent-content{
+                    height: 90%;  
+                    margin-top: 10px;                  
+                    text-align: center;
+                    overflow: auto;
+                    .items-list{
+                        cursor: pointer;
+                        padding: 10px 20px;
+                        &.active {    
+                            border-left: 2px solid $primary-color;                            
+                            background: #eee;
+                        }
+                    }
+                }
+            }
+            .middle{
+                height: 85%;
+                border-right: 3px solid #ddd;
+                @media only screen and(max-width: 550px){
+                    height: 34%;
+                    border-bottom: 3px solid #ddd;
+                    width: 80%;
+                }
+            }
+            .child{
+                width: 30%;
+                height: 80%;
+                text-align: center;  
+                @media only screen and(max-width: 900px){
+                    width: 40%;
+                }
+                @media only screen and(max-width: 600px){
+                    width: 45%;
+                }
+                @media only screen and(max-width: 550px){
+                    width: 80%;
+                }
+                .select-project{
+                    display: inline-block;
+                    position: relative;
+                    width: 50%;
+                }              
+                .parent-content{
+                    height: 95%;  
+                    width: 85%;
+                    margin-top: 10px;                  
+                    text-align: center;
+                    overflow: auto;
+                    border: 2px solid $primary-color;
+                    border-radius: 10px;
+                    // position: absolute;
+                    @media only screen and(max-width: 700px){
+                        overflow: hidden;
+                    }
+                    @media only screen and(max-width: 550px){
+                        width: 100%;
+                    }
+                    .content{
+                        height: 86%;
+                        overflow: auto;
+                        .items-list{
+                            cursor: pointer;
+                            padding: 10px 20px; 
+                            border-bottom: 2px solid #ddd;
+                            border-radius: 16px;
+                        }
+                    }
+                    .value{
+                        position: sticky;
+                        bottom: 6px;
+                        button{
+                            background-color: $primary-color;
+                            border-radius: 6px;
+                            width: 98%;
+                            // height: 13%;
+                            color: white;
+                            border: none;
+                            outline: none;
+                        }
+                    }                   
+                }
+            }
+        }
+        button{
+            width: 9%;
+            margin: auto;
+            background-color: $primary-color;
+            color: white;
+            outline: none;
+            border: none;
+            border-radius: 7px;
+            @media only screen and(max-width: 700px){
+                    width: 20%;
+                    margin-top: 35px;
+            }
+            @media only screen and(max-width: 430px){
+                 width: 35%;
+            }
+            &:focus{
+                outline: none;
+                border: none;
+            }
+        }
+    }
+}
+
+::ng-deep{
+    .child .mat-dialog-container{
+        border-radius: 10px;
+        padding: 12px;
+    }
+}

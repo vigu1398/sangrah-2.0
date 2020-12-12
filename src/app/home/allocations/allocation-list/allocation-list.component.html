@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-header">
+        <div class="p-0 pt-1">
+
+            <h2>Deployed Projects</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <app-searchbox></app-searchbox>
+            <!-- <button class="float-right add-btn" (click)="addAlloction()">
+      <div class="add-icon">
+        <i class="fa fa-plus"></i>
+      </div>
+       Add Allocation</button> -->
+
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Shared By</th>
+                    <th>Allocated To</th>
+                    <th>Modified On</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of DeployedProjects" (click)="showProjectsDetails(project.id)">
+                    <td>{{project.name}}</td>
+                    <td>{{project.shared_by}}</td>
+                    <td>{{project.allocated_to}}</td>
+                    <td>{{project.modified_on}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

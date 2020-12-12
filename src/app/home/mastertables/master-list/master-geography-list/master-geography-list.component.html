@@ -1,0 +1,132 @@
+<div class="container">
+    <!-- <div class="head mb-3">
+        
+        
+    </div> -->
+    <div class="list-container row">
+        <div class="col-lg-5 col-md-5 p-0 list">
+            <h5 class="mb-2 pl-3">List Names</h5>
+            <div class="searchbox">
+                <input type="search" placeholder="Search" [(ngModel)]="projectSearch">
+                <i class="fa fa-search"></i>
+            </div>
+            <ul>
+                <li *ngFor="let item of filter; index as i" [class.active]="i==activeIndex" (click)="getData(item, i)">
+                    {{item.ref_value}}
+                </li>
+            </ul>
+            <button class="float-right add-field-btn" (click)="newItem = !newItem">
+                <div class="add-icon">
+                    <i class="fa fa-plus"></i>
+                </div>
+                Add List
+            </button>
+            <span class="inputDiv" *ngIf="newItem">
+                <div class="input">
+                    <mat-card-content>
+                        <mat-form-field class="input">
+                            <input matInput type="text" [(ngModel)]="binding" placeholder="Add new list"
+                            (keyup)="newListValue($event)" (keydown)="key($event)" />
+                        </mat-form-field>
+                    </mat-card-content>
+
+                    <button (click)="addNewItem()">Add</button>
+                </div>
+                <div class="error">
+                    <span class="error-msg">{{listerror}}</span>
+                </div>
+            </span>
+        </div>
+        <div class="col-lg-7 col-md-7" style="height: 100%;">
+            <div class="list-details">
+                <div class="pb-3 border-bottom">
+                    <label class="font-weight-bold">Name: </label>
+                    <input disabled type="text" [(ngModel)]="fieldName" class="ml-3 editable-input">
+                </div>
+
+                <div class="buttons">
+                    <button class="edit-button" style="background-color: #f44336; right: 0px;" (click)="delete()">
+                        <i class="fa fa-trash"></i>
+                    </button>
+
+                    <button class="edit-button" style="background-color: #4caf50; right: 40px;" (click)="save()">
+                        <i class="fa fa-save"></i>
+                    </button>
+                </div>
+
+                <label class="font-weight-bold mt-3">Values</label>
+                <div class="pt-1" *ngIf="!edit">
+                    <div class="items-list" *ngFor="let user of record;index as i">
+                        <span class="user-name">{{user.ref_value.default || user.ref_value}}</span>
+                    </div>
+                </div>
+                <div class="btn" *ngIf="!edit">
+                    <button class="float-right add-field-btn" (click)="edit = !edit">
+                        <div class="add-icon">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        Add Field
+                    </button>
+
+                    <button class="add-field-btn" (click)="assignParent()">
+                        <div class="add-icon">
+                            <i class="fa fa-link"></i>
+                        </div>
+                        Assign Parent Field
+                    </button>
+                </div>
+
+
+                <div class="pt-2" *ngIf="edit">
+                    <div class="mr-2 mb-3 value-list">
+                        <ul>
+                            <li *ngFor="let item of record; index as i">
+                                <span *ngIf="item.ref_id">{{item.ref_id}}</span>
+                                <span *ngIf="!item.ref_id">{{''}}</span>
+                                <span>{{item.ref_value.default || item.ref_value}}</span>
+                                <span class="fa fa-close" (click)="deleteValue(i)"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div *ngIf="newValue && fieldName" class="new-value">
+                        <mat-card-content style="width: 30%;">
+                            <mat-form-field class="input" style="width: 100%;">
+                                <input matInput type="text" placeholder="ID" [(ngModel)]="inputId"
+                                    (keyup)="newInputId($event)" (keydown)="key($event)" required />
+                            </mat-form-field>
+                        </mat-card-content>
+
+                        <mat-card-content>
+                            <mat-form-field class="input">
+                                <input matInput type="text" placeholder="Value" [(ngModel)]="inputName"
+                                    (keyup)="newInputValue($event)" (keydown)="key($event)" required />
+                            </mat-form-field>
+                        </mat-card-content>
+
+                        <!-- <input class="new-input-id" type="text" placeholder="ID" [(ngModel)]="inputId"
+                            (keyup)="newInputId($event)" (keydown)="key($event)">
+
+                        <input class="new-input" type="text" placeholder="Value" [(ngModel)]="inputName"
+                            (keyup)="newInputValue($event)" (keydown)="key($event)"> -->
+
+                        <i class="fa fa-close" (click)="addValueClose()"></i>
+                    </div>
+                    <div class="error">
+                        <span class="error-msg">{{message1}}</span>
+                        <span class="error-msg">{{message}}</span>
+                    </div>
+                    <span *ngIf="!newValue && fieldName" class="add-new-item" style="white-space: nowrap; margin: auto;"
+                        (click)="this.newValue = !this.newValue">+Add
+                        Value</span>
+                    <span>
+                        <button *ngIf="newValue && fieldName" class="add-new-item"
+                            style="white-space: nowrap; outline: none; margin: auto;" [disabled]="message || message1"
+                            (click)="addValueSave()">Add
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

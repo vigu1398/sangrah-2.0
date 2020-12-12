@@ -1,0 +1,23 @@
+<!-- <div>
+    <a [routerLink]="['/home/mastertables/master-list/master-functional-list']" routerLinkActive="active">Functional
+        List</a>
+    <a [routerLink]="['/home/mastertables/master-list/master-geo-list']" routerLinkActive="active">Geography
+        List</a>
+</div>
+
+<router-outlet></router-outlet> -->
+
+
+
+<div class="mastertables-wrap">
+    <div class="card-header">
+        <a [routerLink]="['/home/mastertables/master-list/master-functional-list']"
+            routerLinkActive="active">Functional</a>
+        <a [routerLink]="['/home/mastertables/master-list/master-geography-list']"
+            routerLinkActive="active">Geography</a>
+    </div>
+    <div class="card-body">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
