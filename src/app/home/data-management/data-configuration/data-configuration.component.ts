@@ -132,7 +132,7 @@ export class DataConfigurationComponent implements OnInit
         }
         else if(Array.isArray(response[key]))
         {
-          console.log(key);
+          //console.log("Array:" + key);
         }
       })
     }
@@ -150,6 +150,14 @@ export class DataConfigurationComponent implements OnInit
         {
           if(typeof this.responseArray[i][key] == 'object' && this.responseArray[i][key] != null && !Array.isArray(this.responseArray[i][key]))
           { 
+            // for(var secondaryKey in this.responseArray[i][key])
+            // {
+            //   if(Array.isArray(this.responseArray[i][key][secondaryKey]))
+            //   {
+            //     this.childCount[i]++;
+            //     this.makeChild(this.responseArray[i][key][secondaryKey], i, this.childCount[i], secondaryKey);
+            //   }
+            // }
             this.prepareColumnSource(this.responseArray[i][key], 1, key, i);
           }
           else if(Array.isArray(this.responseArray[i][key]))
@@ -166,10 +174,12 @@ export class DataConfigurationComponent implements OnInit
       }
     }
 
-    getColumnArrayProcessed(response, pos, childCount, parent)
+  getColumnArrayProcessed(response, pos, childCount, parent)
   {
+    
     var tempArray = [];
     var tempIndex: string = "";
+
     if(typeof response[0] == "object")
     {
       for(var i = 0; i < response.length; i++)
@@ -198,7 +208,6 @@ export class DataConfigurationComponent implements OnInit
 
   makeChild(response, pos, childCount, key)
   {
-    console.log(pos);
     if(childCount == 1)
     {
       this.secondChildColumnSource[pos] = [];
@@ -217,6 +226,18 @@ export class DataConfigurationComponent implements OnInit
           this.secondChildDataSource[i] = {};
           this.firstGridDataSource.push({name: key, _id: response["_id"]});
         }
+
+        // else if(typeof response[key] == 'object' && response[key] != null)
+        // {
+        //   for(var secondaryKey in response[key])
+        //   {
+        //     if(Array.isArray(response[key][secondaryKey]))
+        //     {
+        //       this.secondChildDataSource[i] = {};
+        //       this.firstGridDataSource.push({name: secondaryKey, _id: response["_id"]});
+        //     }
+        //   }
+        // }
       }
     });
   }
@@ -288,7 +309,9 @@ export class DataConfigurationComponent implements OnInit
                   { id: 'Vertical', type: 'Vertical' },
                   { id: 'Both', type: 'Both' },
                   { id: 'None', type: 'None' }];
-    this.toolbar = ["ColumnChooser", "Search", "Print", "PdfExport", "ExcelExport", "Add", "Edit", "Delete", "Update"]; 
+    this.toolbar = ["ColumnChooser", "Search", "Print", "ExcelExport", "Add", "Edit", "Delete", "Update"]; 
+    
+    //Fetching the response via API call
     let obs = this.httpClient.get(apiURL);
     obs.subscribe((response) => 
     {

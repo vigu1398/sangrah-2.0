@@ -1,52 +1,81 @@
 <div class="card">
-    <div class="card-header">
-        <div class="p-0 pt-1">
-            <h2> User Management</h2>
-        </div>
-    </div>
-    
+  <div class="card-header">
+      <div class="p-0 pt-1">
 
-
-    <div class="chart-wrapper">
-        <div class="chart-body" #entireScreenDiv>
-          <div class="header row">
-    
-          </div>
-          <div class="chart-container" *ngIf = "displayFlag">      
-            <ejs-grid 
-              [dataSource] = "dataSource"
-              [childGrid] = "firstChildGrid"
-              [toolbar]="toolbar"
-              [editSettings]='editSettings'
-              [allowPdfExport]='true' 
-              [allowExcelExport]='true'
-              
-              (toolbarClick)='toolbarClick($event)'
-              (queryCellInfo)='queryCellInfo($event)'
-              
-      
-              allowFiltering='true'
-              allowResizing= "true"
-              allowReordering = "true"
-              showColumnChooser='true'   
-              allowSorting='true'
-              allowTextWrap='true' 
-              
-              height = "650" 
-              #grid
-            >
-              <e-columns>
-                <ng-template ngFor let-column [ngForOf]="columnSource"> 
-                  <e-column [field]="column"  [headerText]="column" [width] = "150" > </e-column> 
-                </ng-template>
-              </e-columns>
-            </ejs-grid>
-          </div>
-      
-          <div id="grid-lines-dd">
-            <ejs-dropdownlist #dropdown1 id='ddlelement' width= '100px' [dataSource]='d1data' [fields]='ddlfields' value='Vertical' (change)="change($event)"></ejs-dropdownlist>
-          </div>
-      
-        </div>
+          <h2> User Management</h2>
       </div>
+  </div>
+  <!-- <div class="card-body">
+      <div class="mb-3">
+          <app-searchbox></app-searchbox>
+          <button class="float-right add-btn" (click)="importUser()">
+    <div class="add-icon">
+      <i class="fa fa-plus"></i>
+    </div>
+     Add User</button>
+
+      </div>
+
+      <table class="table table-hover" data-toggle="table">
+          <thead>
+              <tr>
+                  <th>Supervisor</th>
+                  <th>User Name</th>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th>Status</th>
+                  <th>Creation Date</th>
+                  <th>Inactive Since</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let user of UserDetails" (click)="showUserDetails(user.id)">
+                  <td>{{user.name}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.mobile}}</td>
+                  <td>{{user.status}}</td>
+                  <td>{{user.creation_date}}</td>
+                  <td>{{user.inactive_since}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div> -->
+
+
+  <!-- <div class="grid-layout" style="height: 80vh;overflow: auto;">
+      <ejs-grid #grid [dataSource]='syndata' [childGrid]='childrenGridsArray[0].childGrid' allowReordering='true' [allowSorting]='true'
+          [allowGrouping]='true' [allowPaging]='true' [toolbar]='toolbarOptions' [allowExcelExport]='true'
+          [allowPdfExport]='true' (toolbarClick)='toolbarClick($event)' [selectionSettings]='selectionSettings'
+          allowFiltering='true' allowTextWrap='true' allowResizing='true' allowReordering='true'>
+          <e-columns>
+              <e-column field='createdAt' headerText='createdAt'></e-column>
+              <e-column field='createdBy' headerText='createdBy'></e-column>
+              <e-column field='formId' headerText='formId'></e-column>
+              <e-column field='modifiedAt' headerText='modifiedAt'></e-column>
+          </e-columns>
+      </ejs-grid>
+  </div> -->
+
+
+
+  <div class="container">
+      <ejs-grid #grid [dataSource]='displayDataset' [childGrid]='childrenGridsArray[0].childGrid'
+          [allowGrouping]='true' [allowPaging]='true' enableHover='true' [toolbar]='toolbar' [allowPdfExport]='true'
+          [allowExcelExport]='true' allowFiltering='true' (toolbarClick)='toolbarClick($event)'
+          [enableInfiniteScrolling]='true' allowFiltering='true' allowTextWrap='true' allowResizing='true'
+          allowReordering='true' allowSorting='true' showColumnChooser='true' height='400' width="95%">
+          <e-columns>
+
+              <ng-template ngFor let-column [ngForOf]="columnSource">
+                  <e-column [field]="column" [headerText]="column" [width]="300" textAlign="Left">
+                  </e-column>
+              </ng-template>
+
+          </e-columns>
+
+      </ejs-grid>
+      <button ej-button (click)='expand()'>Expand All</button>
+      <button ej-button (click)='collapse()'>Collapse All</button>
+  </div>
 </div>
